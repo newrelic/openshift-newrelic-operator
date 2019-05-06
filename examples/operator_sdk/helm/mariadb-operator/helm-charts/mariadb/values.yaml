@@ -1,0 +1,56 @@
+image:
+  registry: registry.access.redhat.com
+  repository: rhscl/mariadb-102-rhel7
+  tag: latest
+  pullPolicy: IfNotPresent
+
+db:
+  # You *must* set values for the username and passwords below
+  # Passwords cannot be randomly generated using gotpl, as this causes them to change on
+  # each invocation of the reconciliation loop (helm chart apply)
+  user: exampleusr
+  password: ex4mp13P4ssw0rd
+  rootPassword: ex4mp13r00tP4ssw0rd
+  name: sampledb
+  config: |-
+    [mysqld]
+    datadir=/var/lib/mysql/data
+    basedir=/opt/rh/rh-mariadb102/root/usr
+    plugin-dir=/opt/rh/rh-mariadb102/root/usr/lib64/mysql/plugin
+    port=3306
+    bind-address=0.0.0.0
+    max_allowed_packet=16M
+    symbolic-links=0
+    skip_name_resolve
+    ignore-db-dir=lost+found
+    character-set-server=UTF8
+    collation-server=utf8_general_ci
+    general_log=0
+    general_log_file=/var/lib/mysql/data/mysql-query.log
+
+    [client]
+    port=3306
+    default-character-set=UTF8
+
+# Note: changing the service port below is possible, but the container itself can only expose port 3306   
+service:
+  type: ClusterIP
+  port: 3306
+
+# Important!
+# This service account name should match what is defined in `deploy/service_account.yaml` or `ClusterServiceVersion.yaml` when using OLM/OperatorHub
+# These account names must match or else your operator will *not* deploy to OpenShift
+# This feature is provided as an easy way to adjust the service account used to deploy the MariaDB without having to rebuild the operator (if it were hard coded)
+serviceAccountName: mariadb-operator
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi

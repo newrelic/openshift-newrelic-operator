@@ -1,0 +1,1 @@
+{"clusterName":"vv-oc-cluster","clusterID":"3a445d25-fda8-46b9-b867-1fe0f8049675","infraID":"vv-oc-cluster-z8hbq","aws":{"region":"us-east-1","identifier":[{"kubernetes.io/cluster/vv-oc-cluster-z8hbq":"owned"},{"openshiftClusterID":"3a445d25-fda8-46b9-b867-1fe0f8049675"}]}}
