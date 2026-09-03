@@ -11,7 +11,7 @@ This guide covers installing the Operator SDK and prerequisite software includin
 * [Docker](#install-docker-desktop)
 * [Ansible](#install-ansible)
 
-Once your are done with the installations on this list, you will then be able to successfully build your first operator.
+Once you are done with the installations on this list, you will then be able to successfully build your first operator.
 
 ### Deploying Your Operator (for development)
 
@@ -46,11 +46,11 @@ Also note that after making edits to your profile, you must either reload your s
 [workstation] /tmp $ cd ~
 ```
 
-By unpacking this archive into the `/usr/local/` directory we now have a `/usr/local/go` directory that will hold of the Go's internal parts.
+By unpacking this archive into the `/usr/local/` directory we now have a `/usr/local/go` directory that will hold all of Go's internal parts.
 
 ### Adding Go Binaries to the `$PATH`
 
-Before we can actually use the Go tools we'll need to adjust our `$PATH` to include the binaries distributed as part of Go. We need to at the `/usr/local/go/bin` directory to our path by modifying our `~/.barshrc` file:
+Before we can actually use the Go tools we'll need to adjust our `$PATH` to include the binaries distributed as part of Go. We need to add the `/usr/local/go/bin` directory to our path by modifying our `~/.bashrc` file:
 
 _~/.bash_profile_
 ```bash
@@ -227,7 +227,7 @@ Let's start off by installing the most popular package manager for MacOS.
 
 ## Install VirtualBox
 
-It is recommended to install VirtualBox straight from the [website](https://www.virtualbox.org/). Due to MacOS's hightened security features, the installation **will fail** the first time. You must go into `system preferences > security & privacy > general` and explicity allow Oracle to install VirtualBox on your machine. Then re-run the installation package.
+It is recommended to install VirtualBox straight from the [website](https://www.virtualbox.org/). Due to MacOS's heightened security features, the installation **will fail** the first time. You must go into `system preferences > security & privacy > general` and explicitly allow Oracle to install VirtualBox on your machine. Then re-run the installation package.
 
 ## Install xhyve
 
