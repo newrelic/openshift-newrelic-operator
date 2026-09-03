@@ -36,7 +36,6 @@ COPY watches.yaml ${HOME}/watches.yaml
 FROM quay.io/operator-framework/ansible-operator:v0.6.0
 
 ### Required OpenShift Labels
-/ContainerApplicationGenericLabels#####
 LABEL name="Memcached Operator" \
       vendor="Awesome Tech LLC" \
       version="v0.0.1" \
